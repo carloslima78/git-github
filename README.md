@@ -8,11 +8,13 @@ Git é um sistema de controle de versões distribuído, gratuito e de código ab
 
 GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando Git. Ele proporciona várias funcionalidades como gerenciamento de projetos, integração contínua, feedback de código e várias outras, facilitando a colaboração entre desenvolvedores.
 
-## Opções ao GitHub
+## Alternativas ao GitHub
 
 - **GitLab:** Oferece repositórios privados gratuitos e é auto-hospedado, proporcionando controle total sobre os dados.
 - **AWS CodeCommit:** Serviço de controle de versão gerenciado pela Amazon, oferece integrações com outros serviços da AWS.
 - **BitBucket:** Focado em equipes profissionais, oferece integrações com o Trello e o Jira, além de repositórios privados gratuitos para equipes pequenas.
+- **Google Cloud Source Repositories:** Serviço de hospedagem de repositórios privados na nuvem do Google, integra-se com o Cloud Build e o Pub/Sub para automatizar pipelines de CI/CD.
+- **Azure Repos:** Parte do Azure DevOps, oferece repositórios Git privados ilimitados e gratuitos, suporta grandes arquivos Git (Git LFS) e integra-se com as ferramentas do Azure DevOps para CI/CD.
 
 ## Instalando e Configurando o Git no Ubuntu
 
