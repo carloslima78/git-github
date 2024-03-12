@@ -49,9 +49,55 @@ git config --global user.email "username"
 git config --global --list
 ```
 
-## Repositório
+## Repository (Repositório)
 
 Um repositório no Git é uma coleção de arquivos de um projeto e o histórico de todas as mudanças feitas nesses arquivos. Repositórios podem ser locais, armazenados no seu computador, ou remotos, hospedados em uma plataforma como GitHub.
+
+## Project (Projeto)
+
+Um projeto no GitHub é um espaço para organizar e gerenciar arquivos, códigos e recursos relacionados a um trabalho específico. Ele pode conter pastas, arquivos, issues, pull requests e wikis, proporcionando um ambiente centralizado para colaboração e controle de versão do seu trabalho.
+
+Um "project" (projeto) no GitHub pode ser usado para gerenciar o backlog de tarefas, semelhante ao que é feito em metodologias ágeis como o Scrum. É possível criar colunas para representar diferentes etapas do processo de desenvolvimento, como "To Do" (A fazer), "In Progress" (Em progresso), "Testing" (Testando), "Done" (Feito), entre outras, dependendo das necessidades do seu projeto.
+
+Dentro dessas colunas, você pode criar "cards" (cartas) que representam tarefas específicas, como novas funcionalidades, correção de bugs, ou qualquer outra atividade relacionada ao desenvolvimento do software. Os cards podem ser movidos entre as colunas à medida que progridem no processo.
+
+## Repository vs Project
+
+A diferença entre um "project" (projeto) e um "repository" (repositório) no GitHub é que um projeto é um espaço de organização para gerenciar e visualizar informações, como issues, notas, e tarefas relacionadas a um trabalho específico. Por outro lado, um repositório é onde os arquivos e códigos reais do projeto são armazenados. 
+
+Enquanto o repositório contém o código-fonte e o histórico de versões, o projeto fornece uma maneira de organizar e acompanhar o progresso do trabalho, incluindo tarefas, marcos, e colaboradores. Em resumo, o repositório é o local onde o código é armazenado, e o projeto é o espaço para gerenciar o andamento e as tarefas relacionadas a esse código.
+
+### Exemplo
+
+Suponhamos que estejamos trabalhando em um projeto de desenvolvimento de um site:
+
+1. **Repositório** (Repository):
+- O repositório é onde todo o código do site é armazenado.
+- Você cria um repositório chamado "meu-site" no GitHub para este projeto.
+- Todos os arquivos HTML, CSS, JavaScript e outras assets do site são armazenados neste repositório.
+- Os commits (registros de alterações) são feitos no repositório sempre que você adiciona ou altera o código.
+
+2. **Projeto** (Project):
+- Você cria um projeto chamado "Desenvolvimento do Site" no GitHub.
+- Dentro deste projeto, você tem colunas como "To Do" (A fazer), "In Progress" (Em progresso), e "Done" (Feito).
+- Cada carta (card) no projeto representa uma tarefa ou uma funcionalidade a ser implementada no site.
+- Você pode mover as cartas entre as colunas conforme avança no desenvolvimento do site.
+- O projeto fornece uma visão visual do progresso do desenvolvimento, sem lidar diretamente com o código.
+
+Na prática:
+
+#### Repositório "meu-site":
+- Contém arquivos do site (index.html, style.css, script.js, etc.)
+- Commits registrados quando alterações são feitas no código.
+
+#### Projeto "Desenvolvimento do Site":
+- **To Do** (A fazer):
+  - Criar página inicial
+  - Estilizar o menu de navegação
+- **In Progress** (Em progresso):
+  - Implementar funcionalidade de formulário de contato
+- **Done** (Feito):
+  - Adicionar imagens à galeria de fotos
 
 ## Commit
 
