@@ -2,16 +2,16 @@
 
 ## O que é Git
 
-Git é um sistema de controle de versões distribuído, gratuito e de código aberto, projetado para lidar com projetos de pequena a grande escala com rapidez e eficiência. Ele permite que múltiplos desenvolvedores trabalhem juntos em um mesmo projeto sem confusões.
+Git é um sistema de controle de versões distribuído, gratuito e de código aberto, projetado para lidar com projetos de pequena a grande escala com rapidez e eficiência. Ele permite que múltiplos desenvolvedores trabalhem juntos em um mesmo projeto sem conflitos.
 
 ## O que é GitHub
 
-GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando Git. Ele proporciona várias funcionalidades como gerenciamento de projetos, integração contínua, feedback de código e várias outras, facilitando a colaboração entre desenvolvedores.
+GitHub é uma plataforma de hospedagem de código fonte e arquivos com controle de versão baseada em Git que proporciona várias funcionalidades como gerenciamento de projetos, integração e entrega contínua (CI/CD), feedback de código e várias outras, facilitando a colaboração entre desenvolvedores.
 
 ## Alternativas ao GitHub
 
 - **GitLab:** Oferece repositórios privados gratuitos e é auto-hospedado, proporcionando controle total sobre os dados.
-- **AWS CodeCommit:** Serviço de controle de versão gerenciado pela Amazon, oferece integrações com outros serviços da AWS.
+- **AWS CodeCommit:** Serviço de controle de versão gerenciado pela AWS, oferece integrações com outros serviços deste provider.
 - **BitBucket:** Focado em equipes profissionais, oferece integrações com o Trello e o Jira, além de repositórios privados gratuitos para equipes pequenas.
 - **Google Cloud Source Repositories:** Serviço de hospedagem de repositórios privados na nuvem do Google, integra-se com o Cloud Build e o Pub/Sub para automatizar pipelines de CI/CD.
 - **Azure Repos:** Parte do Azure DevOps, oferece repositórios Git privados ilimitados e gratuitos, suporta grandes arquivos Git (Git LFS) e integra-se com as ferramentas do Azure DevOps para CI/CD.
@@ -117,3 +117,274 @@ Esses estágios facilitam o gerenciamento das suas mudanças e permitem que voc�
 
 Branches (ou "ramificações") no Git são utilizadas para trabalhar em diferentes versões de um repositório ao mesmo tempo. Cada branch representa uma linha independente de desenvolvimento. O branch padrão no Git é o "master", mas é comum criar novos branches para desenvolver novas funcionalidades ou corrigir bugs, antes de mesclar essas mudanças de volta ao branch principal.
 
+## Criando um Repositório
+
+
+```bash
+mkdir projeto-1
+cd projeto-1
+```
+
+```bash
+git init
+ls -a
+```
+
+## Incluindo arquivos no Stage
+
+- Criando o arquivo *index.html* no repositório.
+
+```bash
+cd projeto-1
+touch index.html
+git status
+```
+
+- **Resultado:** Arquivos ainda não rastreados e controlados pelo Git, estágio **Modified**.
+
+```bash
+carlos@ubuntu-Lenovo-IdeaPad-Z400:~/Documents/projeto-1$ git status
+No ramo master
+
+No commits yet
+
+Arquivos não monitorados:
+  (utilize "git add <arquivo>..." para incluir o que será submetido)
+        index.html
+```
+
+- Adicionando o arquivo *index.html* no controle Git
+
+```bash
+git add index.html
+git status
+```
+
+- **Resultado:** As alterações estão prontas para serem comitadas, estágio **Staging:**.
+
+```bash
+carlos@ubuntu-Lenovo-IdeaPad-Z400:~/Documents/projeto-1$ git status
+No ramo master
+
+No commits yet
+
+Mudanças a serem submetidas:
+  (utilize "git rm --cached <arquivo>..." para não apresentar)
+        new file:   index.html
+```
+
+- Removendo o arquivo para o estágio anterior, caso haja arrependimento.
+
+```bash
+git git rm --cached index.html
+git status
+```
+
+- **Resultado:** O arquivo volta ao estágio anterior **Modified**
+
+```bash
+carlos@ubuntu-Lenovo-IdeaPad-Z400:~/Documents/projeto-1$ git status
+No ramo master
+
+No commits yet
+
+Arquivos não monitorados:
+  (utilize "git add <arquivo>..." para incluir o que será submetido)
+        index.html
+```
+
+## Realizando Commit
+
+- Comitando o arquivo index.html.
+
+```bash
+git commit -m "Adicionado arquivo index"
+git status
+```
+
+- Adicionando um novo arquivo.
+
+```bash
+touch estilo.css
+git status
+```
+
+```bash
+git add estilo.css
+git status
+```
+
+ou 
+
+```bash
+git add .
+git status
+```
+
+- Comitando o novo arquivo estilo.css.
+
+```bash
+git commit -m "Adicionado arquivo de estilo css"
+git status
+```
+
+- Verificando o log completo.
+
+```bash
+git log
+```
+
+- Resultado
+
+```bash
+carlos@ubuntu-Lenovo-IdeaPad-Z400:~/Documents/projeto-1$ git log
+commit 74650f2754e8288ed1dda859aff517d105f9e17e (HEAD -> master)
+Author: carloslima78 <carlos.lima78@gmail.com>
+Date:   Sat Mar 16 18:14:49 2024 -0300
+
+    Adicionado arquivo de estilo css
+
+commit 2bb3a3919ee2e82ca09696ec9e89c24107896c4f
+Author: carloslima78 <carlos.lima78@gmail.com>
+Date:   Sat Mar 16 18:13:22 2024 -0300
+
+    Adicionado arquivo index
+```
+
+- Verificando o log em uma linha.
+
+```bash
+git log --oneline
+```
+
+- Resultado
+
+```bash
+carlos@ubuntu-Lenovo-IdeaPad-Z400:~/Documents/projeto-1$ git log --oneline
+74650f2 (HEAD -> master) Adicionado arquivo de estilo css
+2bb3a39 Adicionado arquivo index
+```
+
+## Revertendo um Commit
+
+### Comando Checkout
+
+O comando *Checkout* ...
+
+- Lista o histórico de commits realizados
+
+```bash
+git log --oneline
+```
+
+- Resultado
+
+```bash
+carlos@ubuntu-Lenovo-IdeaPad-Z400:~/Documents/projeto-1$ git log --oneline
+1b69a2e (HEAD -> master) Adicionado subtitulo no html
+b7fd354 Adicionado titulo no html
+a142461 Adicionado cor de fundo
+16cbd63 Ajuste no index.html
+74650f2 Adicionado arquivo de estilo css
+2bb3a39 Adicionado arquivo index
+```
+
+- Voltando ao commit *16cbd63* com o comando **checkout**.
+
+```bash
+git checkout 16cbd63
+```
+
+Como resultado, o arquivo retorna para a versão presente no commit *16cbd63*.
+
+```bash
+carlos@ubuntu-Lenovo-IdeaPad-Z400:~/Documents/projeto-1$ git log --oneline
+16cbd63 (HEAD) Ajuste no index.html
+74650f2 Adicionado arquivo de estilo css
+2bb3a39 Adicionado arquivo index
+```
+
+### Comando Revert
+
+O comando *Revert* ...
+
+
+### Comando Reset
+
+O comando *Reset* ...
+
+## Ignorando Arquivos
+
+- Adicionando um suposto arquivo para variáveis de ambiente que deseja-se ignorar.
+
+```bash
+touch .env
+git status
+```
+
+```bash
+git status
+No ramo master
+Arquivos não monitorados:
+  (utilize "git add <arquivo>..." para incluir o que será submetido)
+        .env
+        .gitignore
+```
+
+- Adicionando o arquivo gitignore, onde adicionaremos o arquivo *.env*
+
+```bash
+touch .gitignore
+git status
+```
+
+- Após adicionar o arquivo *.env* no arquivo *.gitignore*, o arquivo das variáveis não será mais listado, e logo não será rastreado pelo Git.
+
+```bash
+git status
+No ramo master
+Arquivos não monitorados:
+  (utilize "git add <arquivo>..." para incluir o que será submetido)
+        .gitignore
+```
+
+## Criando Branches
+
+- Lista as branches, neste caso termos apenas a principal *Master*.
+
+```bash
+git branch
+```
+
+- Cria uma nova branch a partir da principal
+
+```bash
+git branch nova-branch
+```
+
+- Entra na nova branch usando o comando *checkout* que também serve para trocar de branch.
+
+```bash
+git checkout nova-branch
+```
+- Adiciona um novo arquivo na nova branch
+
+```bash
+touch javascript.js
+git add .
+git commmit -m "Novo arquivo adicionado"
+```
+
+### Caso necessite remover uma Branch
+
+- Removendo uma branch
+
+```bash
+git branch -d nova-branch
+```
+
+- Removendo uma de mandeira forçada
+
+```bash
+git branch -D nova-branch
+```
