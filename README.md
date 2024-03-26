@@ -383,8 +383,82 @@ git commmit -m "Novo arquivo adicionado"
 git branch -d nova-branch
 ```
 
-- Removendo uma de mandeira forçada
+- Removendo uma de mandeira forçada, pois o comando anterior pode barrar a remoção caso seja uma branch ... 
 
 ```bash
 git branch -D nova-branch
 ```
+
+## Realizando o Merge entre Branchs
+
+Neste passo faremos o processo de merge entre branchs, onde a branch *Master* é o destino e a branch *nova-branch* será a origem.
+
+- Seguir para a branch principal, em nosso caso a *Master*.
+
+```bash
+git checkout master
+```
+
+- Realizar o merge da branch de origem para a branch de destino, onde passará a ter todos os arquivos da origem.
+
+```bash
+git merge nova-branch
+```
+
+- Após realizar o comando cima, a branch *Master* passa a ter os arquivos da branch *nova-branch*.
+
+```bash
+carlos@ubuntu-Lenovo-IdeaPad-Z400:~/Documents/projeto-1$ git merge mercado-pago
+Updating 26e150d..dfaba2d
+Fast-forward
+ mercado-pago.js | 2 ++
+ 1 file changed, 2 insertions(+)
+```
+
+## Atribuindo um Autor a um Commit
+
+É uma boa prática quanto se têm diversos desenvolvedores trabalhando no mesmo repositório.
+
+```bash
+git commit -m "Algum ajuste" --author="Carlos <carlos@mail.com>"
+```
+
+## Pull Request (PR)
+
+Um Pull Request (PR) é um mecanismo fundamental no controle de versão de um projeto, especialmente em sistemas de controle de versão distribuídos, como o Git. É um processo no qual o desenvolvedor sugere alterações que fez em um repositório Git para serem incorporadas à versão principal do projeto.
+
+Funcionamento Básico
+
+1. **Criação de uma Branch:** Antes de iniciar o trabalho em uma nova funcionalidade ou correção de bugs, é recomendado criar um novo branch em seu repositório local. Isso mantém as alterações separadas da branch principal (geralmente chamada de main ou master).
+
+```bash
+git checkout -b nova-branch
+```
+
+2. **Commit das Alterações:** Após fazer suas alterações no código, o desenvolvedor precisa commitá-las no seu branch local.
+
+```bash
+git add .
+git commit -m "Descrição das alterações"
+```
+3. **Push para o Repositório Remoto:** Agora o desenvolvedor tem as alterações no seu branch local, mas elas ainda não estão disponíveis para os outros colaboradores do projeto. Para isso, será necessário enviar seu branch e commits para o repositório remoto (como GitHub, GitLab, etc.).
+
+```bash
+git push origin nova-branch
+```
+
+4. **Abertura do Pull Request:** Uma vez que o branch com as alterações está no repositório remoto, o desenvolvedor pode abrir um Pull Request. Isso significa que está solicitando que as alterações feitas no  branch sejam "puxadas" para a branch principal do projeto.
+
+- Vá até a página do repositório no GitHub (ou plataforma semelhante).
+- Selecione o branch e clique em "New Pull Request".
+- Escreva uma descrição detalhada das suas alterações, explicando o que foi feito e por quê.
+- Os colaboradores do projeto podem revisar suas alterações, fazer comentários e sugerir ajustes antes de incorporar as alterações na branch principal.
+
+5. **Revisão e Merge:** Os colaboradores revisam o seu Pull Request, discutem as alterações propostas e, se tudo estiver correto, o Pull Request é "merged" (fundido) na branch principal. Isso significa que suas alterações agora fazem parte oficialmente do projeto.
+
+## Fork: Colaborando com projetos abertos
+
+Em projetos de código aberto, o conceito de "fork" é essencial para permitir a colaboração de diversos desenvolvedores em um mesmo projeto. Um fork é uma cópia independente de um repositório, geralmente hospedado em um serviço como GitHub, GitLab, ou Bitbucket. 
+
+Quando o desenvolvedor "forka" um repositório, cria-se uma cópia do projeto completo em sua própria conta, permitindo que faça alterações sem afetar o repositório original.
+
