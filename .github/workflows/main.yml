@@ -1,0 +1,29 @@
+name: Exemplo-Fake-CI-CD-Imagem-Docker
+# Definição do evento que vai disparar a trilha
+on:
+  push: 
+    branches: ["main"]
+  # Permite a execução manual da automação
+  workflow_dispatch: 
+
+# Definição do conjuto de tarefas para execução do fluxo
+jobs:
+  # Job de integração contínua
+  CI:
+    # Definição do Runner onde será executado
+    runs-on: ubuntu:latest
+    # Ações que serão executadas para terminar o CI: Simula construção de uma imagem Docker
+    steps:
+      - name: Passo 01
+        run: echo "Construir imagem Docker da aplicação"
+      - name: Passo 02
+        run: echo "Publicar a imagem Docker no Docker.Hub"
+
+# Job de entrega contínua
+  CD:
+    # Definição do Runner onde será executado
+    runs-on: ubuntu:latest
+    # Ações que serão executadas para terminar o CD: Simula a publicação da imagem Docker
+    steps:
+      - name: Passo 01
+        run: echo "Deploy da aplicação"
