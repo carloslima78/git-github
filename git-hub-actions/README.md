@@ -74,7 +74,7 @@ jobs:
     runs-on: ubuntu:latest
     # Gera dependência  da execução do step anterior para evitar a execução paralela
     needs: ["CI"]
-    # Ações que serão executadas para terminar o CD: Simula a publicação da imagem Docker
+    # Ações que serão executadas para terminar o CD: Simula a publicação da imagem Docker.
     steps:
       - name: Passo 01
         run: echo "Deploy da aplicação"
